@@ -11,7 +11,7 @@ export default function Show() {
     useEffect(() => {
         ( async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/tasks/${id}`)
+                const response = await axios.get(`https://miniproject-backend.herokuapp.com/tasks/${id}`)
                 setShow(response.data)
             }   catch (err) {
                 console.log(err)
@@ -21,7 +21,7 @@ export default function Show() {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:3000/tasks/${id}`)
+            await axios.delete(`https://miniproject-backend.herokuapp.com/tasks/${id}`)
         }   catch (err) {
             console.log(err)
         }   finally {

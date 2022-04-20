@@ -11,7 +11,7 @@ export default function App() {
     useEffect(() => {
         (async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/tasks/table/`)
+                const response = await axios.get(`https://miniproject-backend.herokuapp.com/tasks/table/`)
                 setTasks(response.data)
             } catch (err) {
                 console.log(err)
@@ -21,7 +21,7 @@ export default function App() {
 
     const handleClick = async (statusChange, id) => {
         try {
-            const response = await axios.put(`http://localhost:3000/tasks/${id}`, {
+            const response = await axios.put(`https://miniproject-backend.herokuapp.com/tasks/${id}`, {
                 status: statusChange
             })
             if (response.status === 200) {
@@ -37,7 +37,7 @@ export default function App() {
     const handleSubmit = async (evt) => {
         try {
             console.log("Hello")
-            const response = await axios.post(`http://localhost:3000/tasks`, {
+            const response = await axios.post(`https://miniproject-backend.herokuapp.com/tasks`, {
                 entry: entry.current.value, status: "TO-DO"
             })
         }   catch (err) {
@@ -47,7 +47,7 @@ export default function App() {
 
     const handleDelete = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:3000/tasks/${id}`)
+            const response = await axios.delete(`https://miniproject-backend.herokuapp.com/tasks/${id}`)
             if (response.status === 200) {
                 setButtonPressed(!buttonPressed)
             }   else {
